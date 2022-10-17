@@ -69,20 +69,13 @@ function generatePassword() {
   console.log(finalPasswordCharacter);
   for (let i = 0; i < passwordLength; i++) {
     console.log(randomChar(finalPasswordCharacter));
+    password += randomChar(finalPasswordCharacter);
   }
+  return password;
 }
 
 button.addEventListener("click", () => {
-  generatePassword();
-  const textarea = document.createElement("textarea");
-  const password = Password.innerText;
-  if (!password) {
-    return;
-  }
-  textarea.value = password;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand("copy");
-  textarea.remove();
-  alert("password copied to clipboard");
+  let newpassword = generatePassword();
+  const textarea = document.getElementById("password");
+  textarea.innerText = newpassword;
 });
