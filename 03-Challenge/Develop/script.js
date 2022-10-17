@@ -13,7 +13,7 @@ const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "1234567890";
 const specialChars = "!@£$%&*-+=";
 var passwordLength = [8 > 128];
-let finalPasswordCharacter = [];
+let finalPasswordCharacter = "";
 
 function getLowerLetters() {
   return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
@@ -48,16 +48,16 @@ function generatePassword() {
   var isNumbers = confirm("Do you want your password to contain numbers?");
 
   if (isLowerLetters === true) {
-    finalPasswordCharacter = finalPasswordCharacter.concat(lowerLetters);
+    finalPasswordCharacter += lowerLetters;
   }
   if (isUpperLetters === true) {
-    finalPasswordCharacter = finalPasswordCharacter.concat(upperLetters);
+    finalPasswordCharacter += upperLetters;
   }
   if (isSpecialChars === true) {
-    finalPasswordCharacter = finalPasswordCharacter.concat(specialChars);
+    finalPasswordCharacter += specialChars;
   }
   if (isNumbers === true) {
-    finalPasswordCharacter = finalPasswordCharacter.concat(numbers);
+    finalPasswordCharacter += numbers;
   }
 
   if (passwordLength >= 8 || passwordLength <= 128) {
@@ -66,7 +66,7 @@ function generatePassword() {
 
   const randomChar = (string) =>
     string[Math.floor(Math.random() * string.length)];
-
+  console.log(finalPasswordCharacter);
   for (let i = 0; i < passwordLength; i++) {
     console.log(randomChar(finalPasswordCharacter));
   }
